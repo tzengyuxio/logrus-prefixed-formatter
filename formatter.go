@@ -3,7 +3,7 @@ package prefixed
 import (
 	"bytes"
 	"fmt"
-	"runtime"
+	//"runtime"
 	"sort"
 	"strings"
 	"time"
@@ -67,7 +67,7 @@ func (f *TextFormatter) Format(entry *logrus.Entry) ([]byte, error) {
 
 	prefixFieldClashes(entry.Data)
 
-	isColorTerminal := isTerminal && (runtime.GOOS != "windows")
+	isColorTerminal := isTerminal //&& (runtime.GOOS != "windows")
 	isColored := (f.ForceColors || isColorTerminal) && !f.DisableColors
 
 	timestampFormat := f.TimestampFormat
@@ -104,7 +104,7 @@ func (f *TextFormatter) printColored(b *bytes.Buffer, entry *logrus.Entry, keys 
 	case logrus.ErrorLevel, logrus.FatalLevel, logrus.PanicLevel:
 		levelColor = ansi.Red
 	default:
-		levelColor = ansi.Blue
+		levelColor = ansi.Magenta
 	}
 
 	if entry.Level != logrus.DebugLevel {
