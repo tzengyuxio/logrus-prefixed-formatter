@@ -1,9 +1,8 @@
 package main
 
 import (
-	prefixed "logrus-prefixed-formatter"
-
 	"github.com/Sirupsen/logrus"
+	prefixed "github.com/x-cray/logrus-prefixed-formatter"
 )
 
 var log = logrus.New()
